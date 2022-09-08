@@ -6,7 +6,7 @@ const pressureElement = document.getElementById('pressure');
 const uvIndexElement = document.getElementById('uvindex');
 
 updateWeather();
-setInterval(updateWeather, 5000);
+setInterval(updateWeather, 300000);
 
 function updateWeather() {
     fetch('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Plze%C5%88?unitGroup=metric&key=9YJ3MPA6WTWD8J7F98KZXMBTU&contentType=json')
