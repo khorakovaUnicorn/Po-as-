@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Počasí</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="box">
+    <h1>Plzeň</h1>
+    <p>Plzeň, Plzeňský kraj, Česká republika</p>
+    <p class="conditions" id="conditions"></p>
+    <table>
+        <tr>
+            <td>Temperature</td>
+            <td id="temperature"></td>
+        </tr>
+        <tr>
+            <td>Feels like</td>
+            <td id="feels_like"></td>
+        </tr>
+        <tr>
+            <td>Humidity</td>
+            <td id="humidity"></td>
+        </tr>
+        <tr>
+            <td>Pressure</td>
+            <td id="pressure"></td>
+        </tr>
+        <tr>
+            <td>UV index</td>
+            <td id="uvindex"></td>
+        </tr>
+    </table>
+    <div class="update">
+    <button onclick="updateWeather()">Refresh</button>
+    <p id="updateTime"></p>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
