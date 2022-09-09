@@ -13,8 +13,11 @@ updateWeather();
 function timeFromUpdate() {
     let actualTime = new Date();
     let actualMinute = actualTime.getMinutes()
-    result = actualMinute - updateMinute;
-    console.log(actualMinute);
+    if (actualMinute >= updateMinute) {
+        result = actualMinute - updateMinute;
+    } else {
+        result = 60 + (actualMinute - updateMinute);
+    }
     document.getElementById('updateTime').innerHTML = "Updated " + result + " minutes ago.";
 }
 
@@ -29,7 +32,6 @@ function updateWeather() {
             displayData(data);
             updateTime = new Date();
             updateMinute = updateTime.getMinutes();
-            console.log(updateMinute);
             timeFromUpdate();
         });
 }
