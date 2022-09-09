@@ -5,7 +5,21 @@ const humidityElement = document.getElementById('humidity');
 const pressureElement = document.getElementById('pressure');
 const uvIndexElement = document.getElementById('uvindex');
 
+var updateTime
+var updateMinute
+var result;
 updateWeather();
+
+function timeFromUpdate() {
+    let actualTime = new Date();
+    let actualMinute = actualTime.getMinutes()
+    result = actualMinute - updateMinute;
+    console.log(actualMinute);
+    document.getElementById('updateTime').innerHTML = "Updated " + result + " minutes ago.";
+}
+
+setInterval(timeFromUpdate, 1000);
+
 setInterval(updateWeather, 300000);
 
 function updateWeather() {
@@ -13,7 +27,10 @@ function updateWeather() {
         .then((response) => response.json())
         .then((data) => {
             displayData(data);
-            updateTime();
+            updateTime = new Date();
+            updateMinute = updateTime.getMinutes();
+            console.log(updateMinute);
+            timeFromUpdate();
         });
 }
 
@@ -26,9 +43,10 @@ function displayData(data) {
     uvIndexElement.innerText = data.currentConditions.uvindex;
 }
 
-function updateTime() {
-    let now = new Date();
-    let updateTime = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
-    document.getElementById('updateTime').innerHTML = 'Update time ' + updateTime;
-}
+// function updateTime() {
+//     let now = new Date();
+//     let updateTime = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
+//     document.getElementById('updateTime').innerHTML = 'Update time ' + updateTime;
+// }
+
 
